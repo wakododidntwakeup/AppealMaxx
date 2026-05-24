@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-wrapper">
+
+    <div class="dashboard-hero text-center">
+        <h1>AppealMaxx Dashboard</h1>
+        <p>Fitness tracking system statistics and quick navigation.</p>
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card text-center">
+                <i class="bi bi-person-fill dashboard-icon"></i>
+                <h2>Users</h2>
+                <h1>1</h1>
+                <p>Total registered users</p>
+                <a asp-controller="Users" asp-action="Index" class="btn btn-primary">
+                    Open Users
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card text-center">
+                <i class="bi bi-basket-fill dashboard-icon"></i>
+                <h2>Meals</h2>
+                <h1>2</h1>
+                <p>Total meal records</p>
+                <a asp-controller="Meals" asp-action="Index" class="btn btn-primary">
+                    Open Meals
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card text-center">
+                <i class="bi bi-lightning-fill dashboard-icon"></i>
+                <h2>Workouts</h2>
+                <h1>2</h1>
+                <p>Total workout records</p>
+                <a asp-controller="Workouts" asp-action="Index" class="btn btn-primary">
+                    Open Workouts
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

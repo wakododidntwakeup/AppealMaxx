@@ -1,0 +1,72 @@
+@model AppealMaxxWeb.Models.User
+
+@{
+    ViewData["Title"] = "Personal Profile";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-8">
+
+        <div class="card profile-card">
+
+            <div class="profile-header">
+                <h2>@Model.FullName</h2>
+                <p class="mb-0">AppealMaxx User Profile</p>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h5>Age</h5>
+                        <p>@Model.Age years</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Weight</h5>
+                        <p>@Model.Weight kg</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Height</h5>
+                        <p>@Model.Height cm</p>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="mt-4">
+
+                    <a asp-action="Edit"
+                       asp-route-id="@Model.UserId"
+                       class="btn btn-warning me-2">
+                        Edit Profile
+                    </a>
+
+                    <a asp-controller="Meals"
+                       asp-action="Create"
+                       class="btn btn-success me-2">
+                        Add Meal
+                    </a>
+
+                    <a asp-controller="Workouts"
+                       asp-action="Create"
+                       class="btn btn-info me-2">
+                        Add Workout
+                    </a>
+
+                    <a asp-action="Index"
+                       class="btn btn-secondary">
+                        Back
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

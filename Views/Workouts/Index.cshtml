@@ -1,0 +1,65 @@
+@model IEnumerable<AppealMaxxWeb.Models.Workout>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationMinutes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BurnedCalories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.WorkoutName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DurationMinutes)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BurnedCalories)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.WorkoutDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.User)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.WorkoutId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.WorkoutId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.WorkoutId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

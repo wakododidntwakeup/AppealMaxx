@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="hero-section text-center">
+
+    <h1 class="hero-title">AppealMaxx</h1>
+
+    <p class="hero-text mx-auto mt-4">
+        AppealMaxx is a fitness and nutrition tracking web application
+        designed to help users monitor workouts, meals, and personal progress.
+    </p>
+
+    <div class="mt-4">
+        <a asp-controller="Users" asp-action="Create" class="btn btn-light btn-lg me-3">
+            Get Started
+        </a>
+
+        <a asp-controller="Users" asp-action="Index" class="btn btn-outline-light btn-lg">
+            View Users
+        </a>
+    </div>
+
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-4 mb-4">
+        <div class="card main-card h-100">
+            <div class="card-body text-center">
+
+                <h3>Users</h3>
+
+                <p>
+                    Create and manage user fitness profiles,
+                    including weight, height, and age.
+                </p>
+
+                <a asp-controller="Users" asp-action="Index"
+                   class="btn btn-dark-custom">
+                    Open Users
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card main-card h-100">
+            <div class="card-body text-center">
+
+                <h3>Meals</h3>
+
+                <p>
+                    Track nutrition and calories
+                    to improve diet efficiency.
+                </p>
+
+                <a asp-controller="Meals" asp-action="Index"
+                   class="btn btn-dark-custom">
+                    Open Meals
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card main-card h-100">
+            <div class="card-body text-center">
+
+                <h3>Workouts</h3>
+
+                <p>
+                    Store workout information,
+                    exercises, and training sessions.
+                </p>
+
+                <a asp-controller="Workouts" asp-action="Index"
+                   class="btn btn-dark-custom">
+                    Open Workouts
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
