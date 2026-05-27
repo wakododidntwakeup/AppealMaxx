@@ -9,94 +9,56 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
-<body class="dark-body">
+<body>
+    <div class="page-bg"></div>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark custom-navbar">
-            <div class="container-fluid">
+    <header class="site-header">
+        <nav class="top-navbar">
+            <a class="logo" asp-controller="Users" asp-action="Create">
+                <span>Appeal</span>Maxx
+            </a>
 
-                <a class="navbar-brand fw-bold"
-                   asp-area=""
-                   asp-controller="Home"
-                   asp-action="Dashboard">
-                    AppealMaxx
-                </a>
-
-                <button class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
-                    <ul class="navbar-nav flex-grow-1">
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Home"
-                               asp-action="Dashboard">
-                                Dashboard
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Users"
-                               asp-action="Create">
-                                Registration
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Users"
-                               asp-action="Index">
-                                Users
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Meals"
-                               asp-action="Index">
-                                Meals
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Workouts"
-                               asp-action="Index">
-                                Workouts
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Home"
-                               asp-action="Privacy">
-                                Privacy
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
+            <div class="nav-links">
+                <a asp-controller="Users" asp-action="Create">Registration</a>
+                <a asp-controller="Users" asp-action="Index">Users</a>
+                <a asp-controller="Meals" asp-action="Index">Meals</a>
+                <a asp-controller="Workouts" asp-action="Index">Workouts</a>
             </div>
         </nav>
     </header>
 
-    <div class="container mt-4">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main class="main-content">
+        @RenderBody()
+    </main>
 
-    <footer class="footer-dark mt-5">
-        <div class="container">
-            &copy; 2026 - AppealMaxx
+    <footer class="main-footer">
+        <div class="footer-left">
+            <h2><span>Appeal</span>Maxx</h2>
+            <p>
+                Premium fitness tracking system for users, meals, workouts and progress control.
+            </p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <strong>ASP.NET MVC</strong>
+                <span>Architecture</span>
+            </div>
+
+            <div>
+                <strong>SQL Server</strong>
+                <span>Database</span>
+            </div>
+
+            <div>
+                <strong>Bootstrap</strong>
+                <span>Interface</span>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p>© 2026 AppealMaxx</p>
+            <span>Final database project</span>
         </div>
     </footer>
 
@@ -105,6 +67,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-
 </body>
 </html>

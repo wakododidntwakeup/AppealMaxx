@@ -1,50 +1,84 @@
-@model AppealMaxxWeb.Models.User
+@model AppealMaxxWeb.Models.Meal
 
 @{
-    ViewData["Title"] = "Registration";
+    ViewData["Title"] = "Add Meal";
 }
 
-<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-header bg-dark text-white">
-            <h2>Registration</h2>
-            <p class="mb-0">Create your AppealMaxx profile</p>
+<section class="tracker-form-page">
+
+    <div class="tracker-form-shell">
+
+        <div class="tracker-form-info meal-info">
+            <span class="form-badge">Nutrition</span>
+
+            <h1>Add Meal</h1>
+
+            <p>
+                Record your meal, calories and date. Keep your nutrition under control
+                and track your daily energy intake.
+            </p>
+
+            <div class="info-list">
+                <div>
+                    <strong>01</strong>
+                    <span>Enter user ID</span>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <span>Add meal name</span>
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    <span>Track calories</span>
+                </div>
+            </div>
         </div>
 
-        <div class="card-body">
-            <form asp-action="Create">
+        <div class="tracker-form-card">
+            <h2>Meal Record</h2>
+            <p>Create a new nutrition entry.</p>
+
+            <form asp-action="Create" class="clean-form">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="mb-3">
-                    <label asp-for="FullName" class="form-label"></label>
-                    <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
-                    <span asp-validation-for="FullName" class="text-danger"></span>
+                <div class="input-group-custom">
+                    <label asp-for="UserId">User ID</label>
+                    <input asp-for="UserId" placeholder="Example: 1" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Age" class="form-label"></label>
-                    <input asp-for="Age" class="form-control" placeholder="Enter your age" />
-                    <span asp-validation-for="Age" class="text-danger"></span>
+                <div class="input-group-custom">
+                    <label asp-for="MealName">Meal Name</label>
+                    <input asp-for="MealName" placeholder="Chicken rice, oatmeal, salad..." />
+                    <span asp-validation-for="MealName" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Weight" class="form-label"></label>
-                    <input asp-for="Weight" class="form-control" placeholder="Enter your weight" />
-                    <span asp-validation-for="Weight" class="text-danger"></span>
+                <div class="input-row">
+                    <div class="input-group-custom">
+                        <label asp-for="Calories">Calories</label>
+                        <input asp-for="Calories" placeholder="650" />
+                        <span asp-validation-for="Calories" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group-custom">
+                        <label asp-for="MealDate">Meal Date</label>
+                        <input asp-for="MealDate" type="datetime-local" />
+                        <span asp-validation-for="MealDate" class="text-danger"></span>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Height" class="form-label"></label>
-                    <input asp-for="Height" class="form-control" placeholder="Enter your height" />
-                    <span asp-validation-for="Height" class="text-danger"></span>
+                <div class="form-actions">
+                    <button type="submit" class="main-button">Save Meal</button>
+                    <a asp-action="Index" class="ghost-button">Back to Meals</a>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Create Profile</button>
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
             </form>
         </div>
+
     </div>
-</div>
+
+</section>
 
 @section Scripts {
     @{

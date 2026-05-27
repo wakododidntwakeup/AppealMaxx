@@ -1,72 +1,99 @@
 @model AppealMaxxWeb.Models.User
 
 @{
-    ViewData["Title"] = "Personal Profile";
+    ViewData["Title"] = "Personal Cabinet";
 }
 
-<div class="row justify-content-center mt-5">
+<div class="fitness-dashboard">
 
-    <div class="col-md-8">
-
-        <div class="card profile-card">
-
-            <div class="profile-header">
-                <h2>@Model.FullName</h2>
-                <p class="mb-0">AppealMaxx User Profile</p>
-            </div>
-
-            <div class="card-body">
-
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        <h5>Age</h5>
-                        <p>@Model.Age years</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h5>Weight</h5>
-                        <p>@Model.Weight kg</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h5>Height</h5>
-                        <p>@Model.Height cm</p>
-                    </div>
-                </div>
-
-                <hr />
-
-                <div class="mt-4">
-
-                    <a asp-action="Edit"
-                       asp-route-id="@Model.UserId"
-                       class="btn btn-warning me-2">
-                        Edit Profile
-                    </a>
-
-                    <a asp-controller="Meals"
-                       asp-action="Create"
-                       class="btn btn-success me-2">
-                        Add Meal
-                    </a>
-
-                    <a asp-controller="Workouts"
-                       asp-action="Create"
-                       class="btn btn-info me-2">
-                        Add Workout
-                    </a>
-
-                    <a asp-action="Index"
-                       class="btn btn-secondary">
-                        Back
-                    </a>
-
-                </div>
-
-            </div>
-
+    <div class="dashboard-top">
+        <div>
+            <h1>Welcome, @Model.FullName</h1>
+            <p>Your personal fitness control center.</p>
         </div>
 
+        <a asp-action="Create" class="logout-button">New Profile</a>
+    </div>
+
+    <div class="profile-grid">
+
+        <div class="profile-card big-card">
+            <h2>Personal Profile</h2>
+
+            <div class="profile-info">
+                <div>
+                    <span>Age</span>
+                    <strong>@Model.Age</strong>
+                </div>
+
+                <div>
+                    <span>Weight</span>
+                    <strong>@Model.Weight kg</strong>
+                </div>
+
+                <div>
+                    <span>Height</span>
+                    <strong>@Model.Height cm</strong>
+                </div>
+            </div>
+
+            <a asp-action="Edit" asp-route-id="@Model.UserId" class="primary-link">
+                Edit Profile
+            </a>
+        </div>
+
+        <div class="profile-card">
+            <h3>Daily Calories</h3>
+            <strong class="metric">1850</strong>
+            <p>Goal: 2200 kcal</p>
+
+            <div class="progress-line">
+                <div style="width: 72%"></div>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <h3>Workout Time</h3>
+            <strong class="metric">60 min</strong>
+            <p>Today training session</p>
+
+            <div class="progress-line">
+                <div style="width: 85%"></div>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <h3>Burned Calories</h3>
+            <strong class="metric">700</strong>
+            <p>Active energy burned</p>
+
+            <div class="progress-line">
+                <div style="width: 65%"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="action-grid">
+        <a asp-controller="Meals" asp-action="Create" class="action-card">
+            <span>+</span>
+            Add Meal
+        </a>
+
+        <a asp-controller="Workouts" asp-action="Create" class="action-card">
+            <span>+</span>
+            Add Workout
+        </a>
+
+        <a asp-controller="Meals" asp-action="Index" class="action-card">
+            <span>≡</span>
+            View Meals
+        </a>
+
+        <a asp-controller="Workouts" asp-action="Index" class="action-card">
+            <span>≡</span>
+            View Workouts
+        </a>
     </div>
 
 </div>

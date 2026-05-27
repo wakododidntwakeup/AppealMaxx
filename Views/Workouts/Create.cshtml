@@ -1,60 +1,93 @@
 @model AppealMaxxWeb.Models.Workout
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Workout";
 }
 
-<h1>Create</h1>
+<section class="tracker-form-page">
 
-<h4>Workout</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="tracker-form-shell">
 
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
+        <div class="tracker-form-info workout-info">
+            <span class="form-badge">Training</span>
 
-            <div class="form-group">
-                <label asp-for="WorkoutName" class="control-label"></label>
-                <input asp-for="WorkoutName" class="form-control" />
-                <span asp-validation-for="WorkoutName" class="text-danger"></span>
-            </div>
+            <h1>Add Workout</h1>
 
-            <div class="form-group">
-                <label asp-for="DurationMinutes" class="control-label"></label>
-                <input asp-for="DurationMinutes" class="form-control" />
-                <span asp-validation-for="DurationMinutes" class="text-danger"></span>
-            </div>
+            <p>
+                Save your training session, duration and burned calories.
+                Build discipline through clean activity tracking.
+            </p>
 
-            <div class="form-group">
-                <label asp-for="BurnedCalories" class="control-label"></label>
-                <input asp-for="BurnedCalories" class="form-control" />
-                <span asp-validation-for="BurnedCalories" class="text-danger"></span>
-            </div>
+            <div class="info-list">
+                <div>
+                    <strong>01</strong>
+                    <span>Choose user ID</span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="WorkoutDate" class="control-label"></label>
-                <input asp-for="WorkoutDate" class="form-control" />
-                <span asp-validation-for="WorkoutDate" class="text-danger"></span>
-            </div>
+                <div>
+                    <strong>02</strong>
+                    <span>Add workout name</span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="User" class="control-label"></label>
-                <input asp-for="User" class="form-control" />
-                <span asp-validation-for="User" class="text-danger"></span>
+                <div>
+                    <strong>03</strong>
+                    <span>Track burned energy</span>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
+        <div class="tracker-form-card">
+            <h2>Workout Record</h2>
+            <p>Create a new training entry.</p>
+
+            <form asp-action="Create" class="clean-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="input-group-custom">
+                    <label asp-for="UserId">User ID</label>
+                    <input asp-for="UserId" placeholder="Example: 1" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+                <div class="input-group-custom">
+                    <label asp-for="WorkoutName">Workout Name</label>
+                    <input asp-for="WorkoutName" placeholder="Running, gym, cardio..." />
+                    <span asp-validation-for="WorkoutName" class="text-danger"></span>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group-custom">
+                        <label asp-for="DurationMinutes">Duration</label>
+                        <input asp-for="DurationMinutes" placeholder="60" />
+                        <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group-custom">
+                        <label asp-for="BurnedCalories">Burned Calories</label>
+                        <input asp-for="BurnedCalories" placeholder="800" />
+                        <span asp-validation-for="BurnedCalories" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group-custom">
+                    <label asp-for="WorkoutDate">Workout Date</label>
+                    <input asp-for="WorkoutDate" type="datetime-local" />
+                    <span asp-validation-for="WorkoutDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="main-button">Save Workout</button>
+                    <a asp-action="Index" class="ghost-button">Back to Workouts</a>
+                </div>
+            </form>
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

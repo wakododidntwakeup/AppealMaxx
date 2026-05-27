@@ -1,54 +1,88 @@
 @model AppealMaxxWeb.Models.Meal
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Meal";
 }
 
-<h1>Edit</h1>
+<section class="tracker-form-page">
 
-<h4>Meal</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MealId" />
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
+    <div class="tracker-form-shell">
+
+        <div class="tracker-form-info meal-info">
+            <span class="form-badge">Nutrition</span>
+
+            <h1>Edit Meal</h1>
+
+            <p>
+                Update your meal record and keep your nutrition history accurate.
+            </p>
+
+            <div class="info-list">
+                <div>
+                    <strong>ID</strong>
+                    <span>@Model.MealId</span>
+                </div>
+
+                <div>
+                    <strong>Type</strong>
+                    <span>Meal record</span>
+                </div>
+
+                <div>
+                    <strong>Status</strong>
+                    <span>Editable</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="MealName" class="control-label"></label>
-                <input asp-for="MealName" class="form-control" />
-                <span asp-validation-for="MealName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Calories" class="control-label"></label>
-                <input asp-for="Calories" class="form-control" />
-                <span asp-validation-for="Calories" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MealDate" class="control-label"></label>
-                <input asp-for="MealDate" class="form-control" />
-                <span asp-validation-for="MealDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User" class="control-label"></label>
-                <input asp-for="User" class="form-control" />
-                <span asp-validation-for="User" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
+        <div class="tracker-form-card">
+            <h2>Edit Nutrition</h2>
+            <p>Change saved meal information.</p>
+
+            <form asp-action="Edit" class="clean-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="MealId" />
+
+                <div class="input-group-custom">
+                    <label asp-for="UserId">User ID</label>
+                    <input asp-for="UserId" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+                <div class="input-group-custom">
+                    <label asp-for="MealName">Meal Name</label>
+                    <input asp-for="MealName" />
+                    <span asp-validation-for="MealName" class="text-danger"></span>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group-custom">
+                        <label asp-for="Calories">Calories</label>
+                        <input asp-for="Calories" />
+                        <span asp-validation-for="Calories" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group-custom">
+                        <label asp-for="MealDate">Meal Date</label>
+                        <input asp-for="MealDate" type="datetime-local" />
+                        <span asp-validation-for="MealDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="main-button">Save Changes</button>
+                    <a asp-action="Index" class="ghost-button">Back to Meals</a>
+                </div>
+            </form>
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
