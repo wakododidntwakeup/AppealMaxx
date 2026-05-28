@@ -1,49 +1,88 @@
 @model AppealMaxxWeb.Models.User
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Profile";
 }
 
-<h1>Edit</h1>
+<section class="tracker-form-page">
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="UserId" />
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+    <div class="tracker-form-shell">
+
+        <div class="tracker-form-info profile-edit-info">
+            <span class="form-badge">Profile Settings</span>
+
+            <h1>Edit Profile</h1>
+
+            <p>
+                Update your body parameters and keep your personal fitness cabinet accurate.
+            </p>
+
+            <div class="info-list">
+                <div>
+                    <strong>ID</strong>
+                    <span>@Model.UserId</span>
+                </div>
+
+                <div>
+                    <strong>Name</strong>
+                    <span>@Model.FullName</span>
+                </div>
+
+                <div>
+                    <strong>Status</strong>
+                    <span>Active profile</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Height" class="control-label"></label>
-                <input asp-for="Height" class="form-control" />
-                <span asp-validation-for="Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
+        <div class="tracker-form-card">
+            <h2>Profile Data</h2>
+            <p>Edit your personal information.</p>
+
+            <form asp-action="Edit" class="clean-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="UserId" />
+
+                <div class="input-group-custom">
+                    <label asp-for="FullName">Full Name</label>
+                    <input asp-for="FullName" placeholder="Enter full name" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group-custom">
+                        <label asp-for="Age">Age</label>
+                        <input asp-for="Age" placeholder="18" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group-custom">
+                        <label asp-for="Weight">Weight</label>
+                        <input asp-for="Weight" placeholder="65" />
+                        <span asp-validation-for="Weight" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group-custom">
+                    <label asp-for="Height">Height</label>
+                    <input asp-for="Height" placeholder="180" />
+                    <span asp-validation-for="Height" class="text-danger"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="main-button">Save Profile</button>
+                    <a asp-action="Details" asp-route-id="@Model.UserId" class="ghost-button">Back to Cabinet</a>
+                </div>
+            </form>
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

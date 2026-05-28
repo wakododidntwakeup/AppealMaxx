@@ -39,6 +39,7 @@ namespace AppealMaxxWeb.Controllers
 
         public IActionResult Create()
         {
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -51,10 +52,19 @@ namespace AppealMaxxWeb.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
+                HttpContext.Session.SetInt32("CurrentUserId", user.UserId);
+                HttpContext.Session.SetString("CurrentUserName", user.FullName);
+
                 return RedirectToAction(nameof(Details), new { id = user.UserId });
             }
 
             return View(user);
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Create));
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -87,6 +97,9 @@ namespace AppealMaxxWeb.Controllers
             {
                 _context.Update(user);
                 await _context.SaveChangesAsync();
+
+                HttpContext.Session.SetInt32("CurrentUserId", user.UserId);
+                HttpContext.Session.SetString("CurrentUserName", user.FullName);
 
                 return RedirectToAction(nameof(Details), new { id = user.UserId });
             }
@@ -124,7 +137,9 @@ namespace AppealMaxxWeb.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction(nameof(Index));
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(nameof(Create));
         }
     }
 }

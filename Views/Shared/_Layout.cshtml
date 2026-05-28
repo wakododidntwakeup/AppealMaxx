@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    var isLoggedIn = Context.Session.GetInt32("CurrentUserId") != null;
+    var userName = Context.Session.GetString("CurrentUserName");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,12 +25,20 @@
                 <span>Appeal</span>Maxx
             </a>
 
-            <div class="nav-links">
-                <a asp-controller="Users" asp-action="Create">Registration</a>
-                <a asp-controller="Users" asp-action="Index">Users</a>
-                <a asp-controller="Meals" asp-action="Index">Meals</a>
-                <a asp-controller="Workouts" asp-action="Index">Workouts</a>
-            </div>
+            @if (isLoggedIn)
+            {
+                <div class="nav-links">
+                    <button onclick="history.back()" class="nav-back-button">← Back</button>
+
+                    <a asp-controller="Users" asp-action="Index">Users</a>
+                    <a asp-controller="Meals" asp-action="Index">Meals</a>
+                    <a asp-controller="Workouts" asp-action="Index">Workouts</a>
+
+                    <span class="nav-user">@userName</span>
+
+                    <a asp-controller="Users" asp-action="Logout" class="logout-nav">Logout</a>
+                </div>
+            }
         </nav>
     </header>
 
@@ -51,8 +66,8 @@
             </div>
 
             <div>
-                <strong>Bootstrap</strong>
-                <span>Interface</span>
+                <strong>Session Auth</strong>
+                <span>User Cabinet</span>
             </div>
         </div>
 

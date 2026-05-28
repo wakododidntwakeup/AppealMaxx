@@ -987,3 +987,46 @@ dd {
             width: 100%;
         }
 }
+
+.nav-back-button {
+    border: none;
+    color: #dbeafe;
+    background: rgba(37, 99, 235, 0.14);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    padding: 11px 16px;
+    border-radius: 999px;
+    font-weight: 900;
+    transition: 0.25s;
+}
+
+    .nav-back-button:hover {
+        color: white;
+        background: rgba(37, 99, 235, 0.28);
+        box-shadow: 0 0 25px rgba(96, 165, 250, 0.22);
+    }
+
+.nav-user {
+    color: #93c5fd;
+    font-weight: 900;
+    padding: 11px 16px;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.10);
+    border: 1px solid rgba(96, 165, 250, 0.20);
+}
+
+.logout-nav {
+    color: white !important;
+    background: linear-gradient(135deg, #ef4444, #db2777);
+    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.22);
+}
+
+    .logout-nav:hover {
+        color: white !important;
+        background: linear-gradient(135deg, #dc2626, #be185d) !important;
+    }
+
+.profile-edit-info {
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.28), rgba(2, 6, 23, 0.95)), url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1300&q=80");
+    background-size: cover;
+    background-position: center;
+}
